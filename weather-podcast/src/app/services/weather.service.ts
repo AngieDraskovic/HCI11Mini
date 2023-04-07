@@ -11,7 +11,7 @@ export class WeatherService {
 
   constructor(private http: HttpClient) {}
 
-  getWeatherData(location: string) {
-    return this.http.get(`${this.apiUrl}/current.json?key=${this.API_KEY}&q=${location}`);
+  getCurrentWeatherData(location: string) {
+    return this.http.get(`${this.apiUrl}/current.json?key=${this.API_KEY}&q=${location}&units=metric`);
   }
 }

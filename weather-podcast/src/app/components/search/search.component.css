@@ -127,8 +127,8 @@
   }
 
  .body {
-    background: #E8EBF3;
-    height: 100vh;
+
+    height: 50vh;
     font: 400 16px 'Varela Round', sans-serif;
     display: flex;
     flex-direction: column;
@@ -161,7 +161,7 @@
     display: inline-block;
     font-weight: 800;
     margin-left: 20px;
-    font-size: 28px;
+    font-size: 29px;
   }
 
   .body .parent

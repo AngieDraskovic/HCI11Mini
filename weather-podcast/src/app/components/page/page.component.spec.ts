@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainPodcastComponent } from './main-podcast.component';
+import { PageComponent } from './page.component';
 
-describe('MainPodcastComponent', () => {
-  let component: MainPodcastComponent;
-  let fixture: ComponentFixture<MainPodcastComponent>;
+describe('PageComponent', () => {
+  let component: PageComponent;
+  let fixture: ComponentFixture<PageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainPodcastComponent ]
+      declarations: [ PageComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MainPodcastComponent);
+    fixture = TestBed.createComponent(PageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
