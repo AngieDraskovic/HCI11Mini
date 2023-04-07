@@ -1,13 +1,121 @@
 #weatherCard{
-    height:250px;
+    height:400px;
     width: 65%;
     margin: 0 auto;
-    background: #E8EBF3;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,18,127,1) 0%, rgba(0,212,255,1) 90%);
 }
 
 #icon{
-    height:150px;
-    width:150px;
-    margin-left:20px;
-    margin-top: 30px;
+    height:240px;
+    width:230px;
+    display: block;
+}
+
+
+#desc{
+    color: rgba(255, 255, 255, 0.781);
+    display: block;
+    margin-top: 0;
+    padding: 0;
+    font-size: 23px;
+    /* font-style: italic; */
+    text-align: center;
+    font-weight: 400;
+}
+
+
+#iconDesc {
+    margin-left:170px;
+    margin-top: 50px;
+    /* background-color: #d0e3f70e; */
+    flex-direction: column;
+    align-items: center;
+    width:fit-content;
+    padding-bottom: 20px;
+    border-radius: 50;
+  }
+
+#currentInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#tempDiv{
+    margin-top: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.903);
+    padding-right: 30px;
+    margin-left: 20px;
+    color: rgba(255, 255, 255, 0.844);
+    display: block;
+    width: 170px;
+}
+
+#temp{
+    font-weight: 400;
+    font-size:50px;
+    text-align: right;
+}
+
+#feelsLike{
+    margin-top: 35px;
+    font-size: 20px;
+    text-align: right;
+    font-style: italic;
+}
+
+#txt{
+    font-size: 15px;
+}
+
+
+#detailsDiv{
+    display: block;
+    margin-top: 0px;
+    margin-left: 70px;
+    width:35%;
+    color: rgba(255, 255, 255, 0.844);
+ 
+}
+
+#wind{
+    font-size: 18px;
+    margin-top: 0;
+    display: flex;
+    align-items: center; 
+}
+#windIcon{
+    height:60px;
+    margin-right:25px;
+    width:60px;
+    margin-left: 20px; 
+}
+
+#titl{
+    font-size: 19px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+}
+
+#pressure{
+    font-size: 18px;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+}
+
+#pressureIcon{
+    height:50px;
+    width:50px;
+    margin-left: 20px; 
+}
+
+.weather-section{
+    float: left;
+    width: 50%;
+}
+
+#data{
+    margin-top: 10px;
 }

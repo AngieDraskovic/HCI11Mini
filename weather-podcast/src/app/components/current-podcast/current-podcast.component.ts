@@ -15,11 +15,15 @@ export class CurrentPodcastComponent {
   gotWeather:boolean = false;
   currentTemperature:string = '';
   feelsLike:string = '';
+  wind_kph:string='';
+  wind_dir:string = '';
   humidity:string = '';
   iconSrc:string = '';
   shortDescription:string = '';
-
-
+  pressure_mb:string = '';
+  visibility:string = '';
+  uv:string = '';
+  last_updated:string ='';
 
 
 
@@ -33,16 +37,24 @@ export class CurrentPodcastComponent {
   getWeatherType(){
     console.log(this.weatherData);
     if(this.weatherData!= undefined){
-      this.currentTemperature = this.weatherData.current.temp_c;
+      this.currentTemperature = this.weatherData.current.temp_c + "°C";
       this.iconSrc = this.weatherData.current.condition["icon"];
       this.gotWeather = true;
-      this.shortDescription = this.weatherData.current["text"];
-    }
+      this.shortDescription = this.weatherData.current.condition["text"];
+      this.feelsLike = this.weatherData.current.feelslike_c + "°C"; 
+      this.wind_dir = this.weatherData.current.wind_dir;
+      this.wind_kph = this.weatherData.current.wind_kph;
+      this.visibility = this.weatherData.current.vis_km;  
+      this.last_updated = this.weatherData.current.last_updated;
+      this.humidity = this.weatherData.current.humidity;
+      this.pressure_mb = this.weatherData.current.pressure_mb;
+      this.uv = this.weatherData.current.uv;
+
   }
 
 
-}
 
+  }}
 
 export enum weatherType{
   CLOUDY,
@@ -55,4 +67,5 @@ export enum weatherType{
   CLEAR_NIGHT,
   WINDY_DAY, 
   SNOW
-}
+  }
+

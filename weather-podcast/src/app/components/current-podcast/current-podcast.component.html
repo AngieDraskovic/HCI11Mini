@@ -1,5 +1,23 @@
 <mat-card id="weatherCard">
-    <img *ngIf="gotWeather" id='icon' [src]="iconSrc" alt="Icon">
-<!-- //    <p>{{ shortDe }}</p> -->
-    <!-- <app-weather-icon [weatherType]="weatherType"></app-weather-icon> -->
+    <div id="currentInfo">
+        <div id="iconDesc">
+            <img *ngIf="gotWeather" id='icon' [src]="iconSrc" alt="Icon">
+            <span id="desc"> {{shortDescription.toUpperCase()}}</span>
+        </div>
+        <div id="tempDiv">
+           <div id="temp"> {{currentTemperature}} </div>
+            <div id="feelsLike"> <span id="txt">feels like: </span> {{feelsLike}}</div>
+        </div>
+        <div id="detailsDiv">
+            <div id="wind" class="weather-section">
+                <span  class="wind-text"> <span id="titl"> WIND </span> <br><div id="data"> {{wind_kph}} kph {{wind_dir}} </div> </span> 
+                 <img id= "windIcon" src="assets/images/wind.png">
+            </div>
+            <div id="pressure" class="weather-section">
+                <span  class="pressure-text"> <span id="titl"> PRESSURE </span> <br> <div id="data"> {{pressure_mb}} mb </div></span> 
+                 <img id= "pressureIcon" src="assets/images/p3.png">
+            </div>
+            <div id="visibility"> </div>
+        </div>
+    </div>
 </mat-card>

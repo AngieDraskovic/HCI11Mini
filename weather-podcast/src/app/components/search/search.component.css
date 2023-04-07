@@ -1,7 +1,7 @@
 .search {
     --background: #ffffff;
     --text-color: #414856;
-    --primary-color: #4F29F0;
+    --primary-color: rgba(9, 19, 127, 0.889);
     --border-radius: 10px;
     --width: 250px;    
     --height: 55px;      
@@ -157,7 +157,7 @@
 
   .body .title {
     font-size:22px;
-    color: #4F29F0;
+    color:rgba(9, 19, 127, 0.83);
     display: inline-block;
     font-weight: 800;
     margin-left: 20px;
