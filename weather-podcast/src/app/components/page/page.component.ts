@@ -29,12 +29,6 @@ export class PageComponent {
       this.astroData = astroData;
       this.forecastData = forecastData;
       this.tenDaysData = tenDaysData;
-
-      console.log("futureData");
-      console.log(tenDaysData);
-      console.log("futureData");
-      
-
     })
     .catch(error => {
       console.error(error); 
