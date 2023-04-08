@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { ServiceModule } from './services/service.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { WeatherSliderComponent } from './weather-slider/weather-slider.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    WeatherSliderComponent,
   ],
   imports: [
     BrowserModule,
