@@ -1,5 +1,5 @@
 <div id = 'page'>
-    <app-search (weatherDataEmitter)="onWeatherDataReceived($event)"></app-search>
+    <app-search (inputEmitter)="onInputReceived($event)"></app-search>
 
-    <app-current-podcast [weatherData]="weatherData">  </app-current-podcast>
+    <app-current-podcast [weatherData]="weatherData" [forecastData]="forecastData">  </app-current-podcast>
 </div>

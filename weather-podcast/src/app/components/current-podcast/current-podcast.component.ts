@@ -1,5 +1,5 @@
 import { Component, Input, SimpleChanges, ViewChild } from '@angular/core';
-import { WeatherIconComponent } from '../weather-icon/weather-icon.component';
+
 
 @Component({
   selector: 'app-current-podcast',
@@ -10,8 +10,8 @@ import { WeatherIconComponent } from '../weather-icon/weather-icon.component';
 
 export class CurrentPodcastComponent {
   @Input() weatherData: any;
-  @ViewChild(WeatherIconComponent) weatherComponent: any;
-  weatherType:weatherType = weatherType.SUNNY;
+  @Input() forecastData: any;
+  @Input() astroData:any;
   gotWeather:boolean = false;
   currentTemperature:string = '';
   feelsLike:string = '';
@@ -23,8 +23,10 @@ export class CurrentPodcastComponent {
   pressure_mb:string = '';
   visibility:string = '';
   uv:string = '';
-  last_updated:string ='';
-
+  lastUpdated:string ='';
+  highLow:string = '';
+  uvWarning:string = '';
+  location:string = '';
 
 
   
@@ -32,6 +34,13 @@ export class CurrentPodcastComponent {
     if (changes['weatherData']) {
       this.getWeatherType();
     }
+
+    if (changes['forecastData']){
+      this.getHighLow();
+    }
+
+
+   
   }
  
   getWeatherType(){
@@ -45,27 +54,25 @@ export class CurrentPodcastComponent {
       this.wind_dir = this.weatherData.current.wind_dir;
       this.wind_kph = this.weatherData.current.wind_kph;
       this.visibility = this.weatherData.current.vis_km;  
-      this.last_updated = this.weatherData.current.last_updated;
+      this.lastUpdated = this.weatherData.current.last_updated;
       this.humidity = this.weatherData.current.humidity;
       this.pressure_mb = this.weatherData.current.pressure_mb;
       this.uv = this.weatherData.current.uv;
+      this.location = this.weatherData.location.name + ", " + this.weatherData.location.country;
+      if (Number(this.uv) <= 2){
+        this.uvWarning = "No protection needed."
+      }else if (Number(this.uv) <= 7 && Number(this.uv) >= 3){
+        this.uvWarning = "Sun protection needed. Seek shade."
+      }else if (Number(this.uv) > 8){
+        this.uvWarning = "Extra protection needed. Be careful outside."
+      } 
+  }
+  }
 
+  getHighLow(){
+    this.highLow = this.forecastData;
   }
 
 
 
-  }}
-
-export enum weatherType{
-  CLOUDY,
-  RAINY,      // MOZE I ZA NOC
-  MOSTLY_CLOUDY,
-  THUNDERSTORMS,
-  THUNDERSTORMS_AND_RAIN,
-  CLOUDY_NIGHT,
-  SUNNY,
-  CLEAR_NIGHT,
-  WINDY_DAY, 
-  SNOW
-  }
-
+}

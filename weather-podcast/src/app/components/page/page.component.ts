@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { SearchComponent } from '../search/search.component';
+import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
   selector: 'app-page',
@@ -8,13 +9,31 @@ import { SearchComponent } from '../search/search.component';
 })
 export class PageComponent {
   @ViewChild(SearchComponent) searchComponent: any;
+  weatherData:any;
+  forecastData:any;
+  astroData:any;
 
+  input: string = '';
+  onInputReceived(data: any) {
+    this.input = data;
+    Promise.all([
+      this.weatherService.getCurrentWeatherData(this.input).toPromise(),
+      this.weatherService.getAstronomyTodayData(this.input).toPromise(),
+      this.weatherService.getHighAndLow(this.input)
+    ])
+    .then(([weatherData, astroData, forecastData]) => {
+      this.weatherData = weatherData;
+      this.astroData = astroData;
+      this.forecastData = forecastData;
+    })
+    .catch(error => {
+      console.error(error); 
+   });
 
-  weatherData: any;
-  onWeatherDataReceived(data: any) {
-    this.weatherData = data;
-
-  
   }
+
+  constructor(private weatherService: WeatherService){}
   
+
+
 }

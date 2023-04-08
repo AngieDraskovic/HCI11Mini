@@ -24,7 +24,6 @@ import { SearchComponent } from './search/search.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { PageComponent } from './page/page.component';
 import { CurrentPodcastComponent } from './current-podcast/current-podcast.component';
-import { WeatherIconComponent } from './weather-icon/weather-icon.component';
 
 
 
@@ -33,7 +32,6 @@ import { WeatherIconComponent } from './weather-icon/weather-icon.component';
     SearchComponent,
     PageComponent,
     CurrentPodcastComponent,
-    WeatherIconComponent
   ],
   imports: [
    CommonModule,

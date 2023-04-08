@@ -15,7 +15,12 @@ export class SearchComponent {
   filteredCities: string[] = [];
   cityControl = new FormControl();
   weatherData:any;
+  astroData:any;
+  forecastData:any;
   @Output() weatherDataEmitter = new EventEmitter<any>();
+  @Output() astroDataEmitter = new EventEmitter<any>();
+  @Output() forecastDataEmitter = new EventEmitter<any>();
+  @Output() inputEmitter = new EventEmitter<any>();
 
 
   constructor(private http: HttpClient, private weatherService: WeatherService){}
@@ -49,11 +54,7 @@ export class SearchComponent {
 // }
 
   search(){
-    // console.log(this.cities);
-    this.weatherService.getCurrentWeatherData(this.userInput).subscribe((data) => {
-      console.log(data); // display the weather data in the browser console for testing
-      this.weatherData = data; 
-      this.weatherDataEmitter.emit(this.weatherData);
-    });
+    this.inputEmitter.emit(this.userInput);
+    
   }
 }
