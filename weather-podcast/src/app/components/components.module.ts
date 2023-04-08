@@ -20,16 +20,18 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
-import { MainPodcastComponent } from './components/main-podcast/main-podcast.component';
 import { SearchComponent } from './search/search.component';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { PageComponent } from './page/page.component';
+import { CurrentPodcastComponent } from './current-podcast/current-podcast.component';
 
 
 
 @NgModule({
   declarations: [
-    MainPodcastComponent,
-    SearchComponent
+    SearchComponent,
+    PageComponent,
+    CurrentPodcastComponent,
   ],
   imports: [
    CommonModule,
@@ -53,12 +55,14 @@ import { SearchComponent } from './search/search.component';
    MatDatepickerModule,
    MatNativeDateModule,
    ReactiveFormsModule,
-   MatRadioModule
+   MatRadioModule,
+   MatAutocompleteModule
 
   ],
   exports:[
-    MainPodcastComponent,
-    SearchComponent
+    SearchComponent,
+    PageComponent,
+    CurrentPodcastComponent
   ]
 })
 export class ComponentsModule { }
