@@ -1,173 +1,153 @@
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.space-between-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-container {
+  font: 400 16px 'Varela Round', sans-serif;
+  padding: 2em 0;
+}
+
 .search {
-    --background: #ffffff;
-    --text-color: #414856;
-    --primary-color: rgba(9, 19, 127, 0.889);
-    --border-radius: 10px;
-    --width: 250px;    
-    --height: 55px;      
-    background: var(--background);
-    width: auto;
-    height: var(--height);
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--border-radius);
-    box-shadow: 0 10px 30px rgba(#414856, .05);
-    vertical-align: top;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .search input[type="text"] {
-    position: relative;
-    width: var(--height);
-    height: var(--height);
-    font: 400 16px 'Varela Round', sans-serif;
-    color: var(--text-color);
-    border: 0;
-    box-sizing: border-box;
-    outline: none;
-    padding: 0 0 0 40px;
-    transition: width .6s ease;
-    z-index: 10;
-    opacity: 0;
-    cursor: pointer;
-  }
-  
-  .search input[type="text"]:focus {
-    z-index: 0;
-    opacity: 1;
-    width: var(--width);
-  }
-  
-  .search input[type="text"]:focus ~ .symbol::before {
-    width: 0%;
-  }
-  
-  .search input[type="text"]:focus ~ .symbol:after {
-    clip-path: inset(0% 0% 0% 100%);
-    transition: clip-path .04s linear .105s;
-  }
-  
-  .search input[type="text"]:focus ~ .symbol .cloud {
-    top: -30px;
-    left: -30px;
-    transform: translate(0, 0);
-    transition: all .6s ease;
-  }
-  
-  .search input[type="text"]:focus ~ .symbol .lens {
-    top: 20px;
-    left: 15px;
-    transform: translate(0, 0);
-    fill: var(--primary-color);
-    transition: top .5s ease .1s, left .5s ease .1s, fill .3s ease;
-  }
-  
-  .search .symbol {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .search .symbol::before {
-    content:"";
-    position: absolute;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--primary-color);
-    z-index: -1;
-    transition: width .6s ease;
-  }
-  
-  .search .symbol::after {
-    content:"";
-    position: absolute;
-    top: 21px;
-    left: 21px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: var(--primary-color);
-    z-index: 1;
-    clip-path: inset(0% 0% 0% 0%);
-    transition: clip-path .04s linear .225s;
-  }
-  
-  .search .symbol .cloud,
-  .search .symbol .lens {
-    position: absolute;
-    fill: #fff;
-    stroke: none;
-    top: 50%;
-    left: 50%;
-  }
-  
-  .search .symbol .cloud {
-    width: 35px;
-    height: 32px;
-    transform: translate(-50%, -60%);
-    transition: all .6s ease;
-  }
+  --background: #ffffff;
+  --text-color: #414856;
+  --primary-color: rgba(9, 19, 127, 0.889);
+  --border-radius: 10px;
+  --width: 250px;
+  --height: 55px;
 
-  .search .symbol .lens {
-    fill: #fff;
-      width: 16px;
-      height: 16px;
-      z-index: 2;
-      top: 24px;
-      left: 24px;
-      transition: top .3s ease, left .3s ease, fill .2s ease .2s;
-  }
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  background: var(--background);
+  box-shadow: 0 10px 30px rgba(65, 72, 86, 0.05);
+  /*width: auto;*/
+  /*height: var(--height);*/
+  /*display: inline-block;*/
+  /*vertical-align: top;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
+}
 
- .body {
+.search input[type="text"] {
+  width: var(--height);
+  height: var(--height);
+  z-index: 10;
+  opacity: 0;
+  border: 0;
+  box-sizing: border-box;
+  outline: none;
+  padding: 0 0 0 40px;
+  cursor: pointer;
+  font: 400 16px 'Varela Round', sans-serif;
+  color: var(--text-color);
+  transition: width .6s ease;
+  /*position: relative;*/
+}
 
-    height: 50vh;
-    font: 400 16px 'Varela Round', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .socials {
-    position: fixed;
-    display: block;
-    left: 20px;
-    bottom: 20px;
-  }
-  
-  .socials > a {
-    display: block;
-    width: 30px;
-    opacity: var(--opacity, .2);
-    transform: scale(var(--scale, .8));
-    transition: transform .3s cubic-bezier(0.38,-0.12, 0.24, 1.91);
-  }
-  
-  .socials > a:hover {
-    --scale: 1;
-  }
+.search input[type="text"]:focus {
+  z-index: 0;
+  opacity: 1;
+  width: var(--width);
+}
 
-  .body .title {
-    font-size:22px;
-    color:rgba(9, 19, 127, 0.83);
-    display: inline-block;
-    font-weight: 800;
-    margin-left: 20px;
-    font-size: 29px;
-  }
+.search .symbol {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .body .parent
-  {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.search .symbol::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: var(--primary-color);
+  transition: width .6s ease;
+}
 
-  }
+.search .symbol::after {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  width: 20px;
+  height: 20px;
+  z-index: 1;
+  border-radius: 50%;
+  background: var(--primary-color);
+  clip-path: inset(0% 0% 0% 0%);
+  transition: clip-path .04s linear .225s;
+}
+
+.search .symbol .cloud,
+.search .symbol .lens {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  fill: #fff;
+  stroke: none;
+}
+
+.search .symbol .cloud {
+  width: 35px;
+  height: 32px;
+  transform: translate(-50%, -60%);
+  transition: all .6s ease;
+}
+
+.search input[type="text"]:focus ~ .symbol::before {
+  width: 0;
+}
+
+.search input[type="text"]:focus ~ .symbol:after {
+  clip-path: inset(0% 0% 0% 100%);
+  transition: clip-path .04s linear .105s;
+}
+
+.search input[type="text"]:focus ~ .symbol .cloud {
+  top: -30px;
+  left: -30px;
+  transform: translate(0, 0);
+  transition: all .6s ease;
+}
+
+.search input[type="text"]:focus ~ .symbol .lens {
+  top: 20px;
+  left: 15px;
+  transform: translate(0, 0);
+  fill: var(--primary-color);
+  transition: top .5s ease .1s, left .5s ease .1s, fill .3s ease;
+}
+
+.search .symbol .lens {
+  fill: #fff;
+  width: 16px;
+  height: 16px;
+  z-index: 2;
+  top: 24px;
+  left: 24px;
+  transition: top .3s ease, left .3s ease, fill .2s ease .2s;
+}
+
+.search-container .title {
+  color: rgba(9, 19, 127, 0.83);
+  display: inline-block;
+  font-weight: 800;
+  margin-left: 20px;
+  font-size: 28px;
+}
