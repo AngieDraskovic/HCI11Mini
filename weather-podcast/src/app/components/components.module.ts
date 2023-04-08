@@ -24,6 +24,7 @@ import { SearchComponent } from './search/search.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { PageComponent } from './page/page.component';
 import { CurrentPodcastComponent } from './current-podcast/current-podcast.component';
+import { WeatherSliderComponent } from './weather-slider/weather-slider.component';
 
 
 
@@ -32,6 +33,8 @@ import { CurrentPodcastComponent } from './current-podcast/current-podcast.compo
     SearchComponent,
     PageComponent,
     CurrentPodcastComponent,
+    WeatherSliderComponent,
+
   ],
   imports: [
    CommonModule,
@@ -63,6 +66,7 @@ import { CurrentPodcastComponent } from './current-podcast/current-podcast.compo
     SearchComponent,
     PageComponent,
     CurrentPodcastComponent
+
   ]
 })
 export class ComponentsModule { }
