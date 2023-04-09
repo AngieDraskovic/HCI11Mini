@@ -35,7 +35,7 @@ export class WeatherService {
           });
           console.log(`Max temp: ${maxTemp}°C`);
           console.log(`Min temp: ${minTemp}°C`);
-  
+
           return "H: " + maxTemp + "°C |" + "  L: " + minTemp + "°C";
         });
   }
@@ -53,3 +53,28 @@ export class WeatherService {
   
   }
   
+  getTenDaysData(location: string) {
+    const pastDays = 7;
+    const futureDays = 4;
+    const endDate = new Date();
+    const startDate = new Date();
+    startDate.setDate(startDate.getDate() - pastDays);
+    endDate.setDate(endDate.getDate() + futureDays);
+    const formattedStartDate = this.formatDate(startDate);
+    const formattedEndDate = this.formatDate(endDate);
+    return this.http.get(`${this.apiUrl}/history.json?key=${this.API_KEY}&q=${location}&dt=${formattedStartDate}&end_dt=${formattedEndDate}&units=metric`);
+  }
+
+  private formatDate(date: Date) {
+    const year = date.getFullYear();
+    const month = this.padZero(date.getMonth() + 1);
+    const day = this.padZero(date.getDate());
+    return `${year}-${month}-${day}`;
+  }
+
+  private padZero(num: number) {
+    return num.toString().padStart(2, '0');
+  }
+
+}
+

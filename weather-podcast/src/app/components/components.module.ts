@@ -28,6 +28,8 @@ import { WarningsComponentComponent } from './warnings-component/warnings-compon
 import { WeatherDetailDialogComponent } from './weather-detail-dialog/weather-detail-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { WeatherSliderComponent } from './weather-slider/weather-slider.component';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     CurrentPodcastComponent,
     WarningsComponentComponent,
     WeatherDetailDialogComponent,
+    WeatherSliderComponent,
   ],
   imports: [
    CommonModule,
@@ -68,6 +71,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     SearchComponent,
     PageComponent,
     CurrentPodcastComponent
+
   ]
 })
 export class ComponentsModule { }
