@@ -24,14 +24,18 @@ import { SearchComponent } from './search/search.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { PageComponent } from './page/page.component';
 import { CurrentPodcastComponent } from './current-podcast/current-podcast.component';
-
-
+import { WarningsComponentComponent } from './warnings-component/warnings-component.component';
+import { WeatherDetailDialogComponent } from './weather-detail-dialog/weather-detail-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
     SearchComponent,
     PageComponent,
     CurrentPodcastComponent,
+    WarningsComponentComponent,
+    WeatherDetailDialogComponent,
   ],
   imports: [
    CommonModule,
@@ -56,8 +60,9 @@ import { CurrentPodcastComponent } from './current-podcast/current-podcast.compo
    MatNativeDateModule,
    ReactiveFormsModule,
    MatRadioModule,
-   MatAutocompleteModule
-
+   MatAutocompleteModule,
+   MatDialogModule,
+   MatTooltipModule
   ],
   exports:[
     SearchComponent,

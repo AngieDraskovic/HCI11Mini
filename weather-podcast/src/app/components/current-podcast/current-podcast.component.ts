@@ -12,6 +12,7 @@ export class CurrentPodcastComponent {
   @Input() weatherData: any;
   @Input() forecastData: any;
   @Input() astroData:any;
+  @Input() warningData:any;
   gotWeather:boolean = false;
   currentTemperature:string = '';
   feelsLike:string = '';
@@ -27,8 +28,9 @@ export class CurrentPodcastComponent {
   highLow:string = '';
   uvWarning:string = '';
   location:string = '';
-
-
+  day:string = '';
+  date:string = ''
+  precip:string = '';
   
   ngOnChanges(changes: SimpleChanges) {
     if (changes['weatherData']) {
@@ -39,6 +41,9 @@ export class CurrentPodcastComponent {
       this.getHighLow();
     }
 
+    if(changes['warningData']){
+      this.getWarnings();
+    }
 
    
   }
@@ -59,6 +64,10 @@ export class CurrentPodcastComponent {
       this.pressure_mb = this.weatherData.current.pressure_mb;
       this.uv = this.weatherData.current.uv;
       this.location = this.weatherData.location.name + ", " + this.weatherData.location.country;
+      this.date = this.weatherData.location.localtime.split(" ")[0];
+      this.day = this.getDayOfTheWeek(this.date);
+      this.date = this.getPrettierFormat(this.date);
+      this.precip = this.weatherData.current.precip_mm;
       if (Number(this.uv) <= 2){
         this.uvWarning = "No protection needed."
       }else if (Number(this.uv) <= 7 && Number(this.uv) >= 3){
@@ -73,6 +82,22 @@ export class CurrentPodcastComponent {
     this.highLow = this.forecastData;
   }
 
+  getWarnings(){
+    console.log(this.warningData);
+  }
 
+  getDayOfTheWeek(dateStr:string){
+    const date = new Date(dateStr);
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const dayOfWeek = daysOfWeek[date.getDay()];
+    return dayOfWeek;
+  }
 
+  getPrettierFormat(dateStr:string){
+    const day = dateStr.split("-")[1];
+    const month = dateStr.split("-")[2];
+    const year = dateStr.split("-")[0];
+
+    return day + "." + month + "." + year
+  }
 }

@@ -1,0 +1,30 @@
+#noWarn{
+    font-size: 15px;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.787);
+}
+
+#title{
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.701);
+}
+
+#warningArea{
+    margin-left: 100px;
+    width: max-content;
+    max-width: 35%;
+    min-width: 20%;
+    padding: 20px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    border: rgba(255, 255, 255, 0.824) solid 2px;
+    margin-right: 0;
+}
+
+#w{
+    color:rgba(255, 255, 255, 0.823); 
+}
+
+#cont{
+    margin-top: 20px;
+}

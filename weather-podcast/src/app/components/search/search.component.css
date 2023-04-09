@@ -128,14 +128,19 @@
 
  .body {
 
-    height: 50vh;
+    height: 9vh;
     font: 400 16px 'Varela Round', sans-serif;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    margin: 0 auto;
+    padding-top: 50px;
+    width:70%;
   }
   
+
+
   .socials {
     position: fixed;
     display: block;
@@ -157,7 +162,7 @@
 
   .body .title {
     font-size:22px;
-    color:rgba(9, 19, 127, 0.83);
+    color: rgba(0,212,255,1);
     display: inline-block;
     font-weight: 800;
     margin-left: 20px;
@@ -171,3 +176,41 @@
     align-items: center;
 
   }
+
+    
+@media only screen and (max-width: 1500px) {
+  .body {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .body {
+    width: 80%;
+  }
+  .body .title{
+    font-size: 26px;
+  } 
+}
+
+@media only screen and (max-width: 1300px) {
+  .body {
+    width: 85%;
+    height:8.5vh;
+  }
+  .body .title{
+    font-size: 24px;
+  } 
+}
+
+@media only screen and (max-width: 1200px) {
+  .body {
+    width: 99%;
+  }
+  .body .title{
+    font-size: 22px;
+  } 
+  .search{
+    --height:47px;
+  }
+}

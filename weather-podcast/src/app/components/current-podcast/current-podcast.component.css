@@ -1,21 +1,33 @@
 #weatherCard{
-    height:700px;
+    height:min-content;
+    padding-bottom: 100px;
     width: 70%;
     margin: 0 auto;
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,18,127,1) 0%, rgba(0,212,255,1) 90%);
 }
 
+
 #cityInfo{
-    font-size: 45px;
+    font-size: 38px;
     color: rgba(255, 255, 255, 0.844);
     margin-left: 100px;
-    margin-top: 100px;
+    margin-top: 80px;
     font-family: sans-serif;
+}
+
+#dayInfo{
+    font-size: 19px;
+    color: rgba(255, 255, 255, 0.844);
+    margin-left: 100px;
+    margin-top: 25px;
+    font-family: sans-serif;
+    font-style: italic;
 }
 #icon{
     height:220px;
     width:210px;
+    /* width:110%; */
     display: block;
 }
 
@@ -34,7 +46,7 @@
 
 #iconDesc {
     margin-left:100px;
-    margin-top: 20px;
+    margin-top: 10px;
     /* background-color: #d0e3f70e; */
     flex-direction: column;
     align-items: center;
@@ -50,7 +62,7 @@
 }
 
 #tempDiv{
-    margin-top: 20px;
+    margin-top: 15px;
     border-right: 1px solid rgba(255, 255, 255, 0.903);
     padding-right: 30px;
     margin-left: 10px;
@@ -144,6 +156,23 @@
     margin-top:40px;
   }
 
+  #titlPrep{
+    color: rgba(255, 255, 255, 0.753);
+    font-size: 16px;
+   
+  }
+
+ 
+  #prInfo{
+    margin-top: 12px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.753);
+  }
+#i{
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.651);
+    text-align: right;
+}
   /* slider */
   #uvInfo {
     display: flex;
@@ -154,7 +183,7 @@
   }
   
   .slider-container {
-    width: 400px;
+    width: 80%;
     position: relative;
   }
   
@@ -257,23 +286,33 @@
   }
 
   #detailsDiv2{
-    margin-top: 80px;
+    margin-top: 40px;
+    margin-left: 40px;
   }
 
   #uvInfo{
     text-align: left;
     color: rgba(255, 255, 255, 0.767);
     font-size: 14px;
+    width: 100%;
+    margin-top: 70px;
   }
-
+  #detailsDiv2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
   #uv{
     font-size: 19px;
     color: rgba(255, 255, 255, 0.816);
   }
 
   #detailsDiv{
-    margin-top: 100px;
+    margin-top: 70px;
   }
+  
 
   @media only screen and (max-width: 600px) {
     #detailsDiv, #detailsDiv2 {
@@ -281,6 +320,7 @@
     }
   }
 
+ 
 
   
 .weather-section {
@@ -330,3 +370,147 @@
       font-size: 16px;
     }
   }
+
+
+
+
+  @media only screen and (max-width: 1500px) {
+    #weatherCard {
+      width: 75%;
+    }
+  }
+
+  @media only screen and (max-width: 1400px) {
+    #weatherCard {
+      width: 80%;
+    }
+    #cityInfo{
+        font-size:35px;
+    }
+  }
+
+  @media only screen and (max-width: 1300px) {
+    #weatherCard {
+      width: 85%;
+    }
+    #icon{
+      width: 190px;
+    }
+    #cityInfo{
+        font-size:32px;
+    }
+    #temp{
+        font-size:40px;
+      }
+      #feelsLike{
+        font-size: 15px;
+      }
+  
+        #hl{
+        font-size: 13px;
+        }
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    #weatherCard {
+      width: 99%;
+    }
+    #icon{
+        width: 190px;
+      }
+      #temp{
+        font-size:35px;
+      }
+      #feelsLike{
+        font-size: 13px;
+      }
+      #txt{
+        font-size: 10px;
+    }
+    #hl{
+        font-size: 11px;
+    }
+  
+  }
+  
+  
+  
+  
+  @media only screen and (max-width: 850px, min-width:200px;) {
+    /* #tempDiv {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #iconDesc {
+        text-align: center;
+    }
+    #temp {
+        width: 50%;
+        font-size: 20px;
+    }
+    #feelsLike, #hl {
+        margin-top: 10px;
+        flex-basis: 80%;
+        text-align: right;
+        font-size: 17px;
+    }
+    #feelsLike {
+        font-size: 16px;
+       border:none;
+    }
+    #hl {
+        border:none;
+    } */
+    #detailsDiv{
+        margin-top: 0px;
+    } 
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .weather-section {
+        flex-basis: 50%;
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    #row2 {
+        border-top:none;
+        margin-top: 10px;
+    }
+    #visibility, #humidity {
+        border-left: none;
+    }
+    #windIcon, #pressureIcon, #visibilityIcon, #humidityIcon {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+    #feelsLike, #hl {
+        margin-top: 10px;
+        text-align: right;
+        font-size: 17px;
+    }
+    #iconDesc, #tempDiv {
+        display: block;
+        width: 100%;
+      }
+    
+      #iconDesc {
+        order: 1;
+      }
+      #tempDiv {
+        order: 2;
+      }
+      .container {
+        order: 3;
+      }
+    /* #icon{
+        width: 130px;
+        height: 130px;
+      } */
+  }
+  
