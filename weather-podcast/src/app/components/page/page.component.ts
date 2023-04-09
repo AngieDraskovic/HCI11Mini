@@ -13,7 +13,6 @@ export class PageComponent {
   forecastData:any;
   astroData:any;
   tenDaysData:any;
-
   input: string = '';
   onInputReceived(data: any) {
     this.input = data;
@@ -21,6 +20,13 @@ export class PageComponent {
       this.weatherService.getCurrentWeatherData(this.input).toPromise(),
       this.weatherService.getAstronomyTodayData(this.input).toPromise(),
       this.weatherService.getHighAndLow(this.input),
+      this.weatherService.getWeatherWarnings(this.input)
+    ])
+    .then(([weatherData, astroData, forecastData, warningData]) => {
+      this.weatherData = weatherData;
+      this.astroData = astroData;
+      this.forecastData = forecastData;
+      this.warningData = warningData;
       this.weatherService.getTenDaysData(this.input).toPromise()
 
     ])

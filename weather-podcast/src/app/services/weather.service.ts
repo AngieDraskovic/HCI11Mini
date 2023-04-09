@@ -40,6 +40,19 @@ export class WeatherService {
         });
   }
 
+  getWeatherWarnings(location:string){
+    return fetch(`https://api.weatherapi.com/v1/forecast.json?key=${this.API_KEY}&q=${location}&days=1&aqi=no&alerts=yes`)
+        .then(response => response.json())
+        .then(data => { 
+          return data.alerts;
+        });
+  }
+
+
+  
+  
+  }
+  
   getTenDaysData(location: string) {
     const pastDays = 7;
     const futureDays = 4;
@@ -64,3 +77,4 @@ export class WeatherService {
   }
 
 }
+
