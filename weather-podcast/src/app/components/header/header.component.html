@@ -5,33 +5,38 @@
       <img ngSrc="assets/images/logo.png" width="364" height="58" alt="logo">
     </a>
 
-    <div class="search-view" data-search-view>
+    <div class="search-view" [ngClass]="{'active': isActive}" data-search-view>
 
       <div class="search-wrapper">
-        <input type="search" name="search" placeholder="Search city..." class="search-field" data-search-field>
+        <input type="text" name="search" placeholder="Search city..." class="search-field"
+               [ngClass]="{'searching': isSearching}"
+               #myInput
+               (input)="onInputChange(myInput.value)">
 
         <span class="m-icon leading-icon">search</span>
 
-        <button class="icon-btn leading-icon has-state" aria-label="close search" data-search-toggler>
+        <button class="icon-btn leading-icon has-state" aria-label="close search" data-search-toggler
+                (click)="toggleSearch()">
           <span class="m-icon">arrow_back</span>
         </button>
       </div>
 
-      <div class="search-result" data-search-result>
-        <ul class="view-list" data-search-list>
+      <div class="search-result" [ngClass]="{'active': searchResultActive}">
+        <ul class="view-list">
 
-          <li class="view-item">
+          <li class="view-item" *ngFor="let city of fetchedCities" (click)="chooseCity(city.id)">
             <span class="m-icon">location_on</span>
 
             <div>
-              <p class="item-title">London</p>
+              <p class="item-title">{{city.name}}</p>
 
-              <p class="label-2 item-subtitle">State of London, GB</p>
+              <p class="label-2 item-subtitle">{{city.region}}</p>
             </div>
 
-            <a href="#" class="item-link has-state" data-search-toggler></a>
-
+            <a href="#" class="item-link has-state" data-search-toggler (click)="toggleSearch()"></a>
           </li>
+
+          <p class="empty-search" [ngClass]="{'results': isEmptySearch}">Nothing found...</p>
 
         </ul>
       </div>
@@ -42,11 +47,11 @@
 
     <div class="header-actions">
 
-      <button class="icon-btn has-state" aria-label="open search" data-search-toggler>
+      <button class="icon-btn has-state" aria-label="open search" data-search-toggler (click)="toggleSearch()">
         <span class="m-icon icon">search</span>
       </button>
 
-      <a href="#/current-location" class="btn-primary has-state" data-current-location-btn>
+      <a href="#/current-location" class="btn-primary has-state" (click)="getCurrentLocation()">
         <span class="m-icon">my_location</span>
         <span class="span">Current Location</span>
       </a>

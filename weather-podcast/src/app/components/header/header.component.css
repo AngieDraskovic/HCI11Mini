@@ -129,6 +129,23 @@
   box-shadow: none;
 }
 
+.search-result p {
+  margin: 0;
+}
+
+.empty-search {
+  text-align: center;
+  padding: 0.5rem 0;
+  font-size: var(--label-1);
+  color: var(--on-surface-variant-2);
+  font-weight: var(--weight-semiBold);
+  display: none;
+}
+
+.results {
+  display: block;
+}
+
 @media (min-width: 768px) {
   .header-actions {
     gap: 24px;
