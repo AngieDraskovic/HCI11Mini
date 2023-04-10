@@ -1,6 +1,17 @@
-<!-- <h2 mat-dialog-title id="title">Warning Description <button id="closeBtn" mat-icon-button mat-dialog-close>
-    <mat-icon>close</mat-icon>
-  </button></h2>
-<mat-dialog-content id="content">
-  <p>{{ data.detail }}</p>
-</mat-dialog-content> -->
+<body>
+  <h2 mat-dialog-title id="title">Warnings
+    <button id="closeBtn" mat-icon-button mat-dialog-close> <mat-icon>close</mat-icon> </button>
+  </h2>
+  <mat-dialog-content id="content">
+    <div>
+      {{ data.noWarning }}
+    </div>
+    <div *ngFor="let warning of data.detail" class="warning">
+      <p *ngIf="!warning.showMore">{{ warning.desc | slice:0:100 }}{{ warning.desc.length > 100 ? '...' : '' }}</p>
+      <a *ngIf="warning.desc.length > 100" (click)="setTrue(warning)">
+        {{ warning.showMore ? 'Show less' : 'Show more' }}
+      </a>
+      <p *ngIf="warning.showMore">{{ warning.desc }}</p>
+    </div>
+  </mat-dialog-content>
+</body>

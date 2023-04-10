@@ -28,6 +28,7 @@ import { TodayHighlightsComponent } from './today-highlights/today-highlights.co
 import { HourlyForecastComponent } from './hourly-forecast/hourly-forecast.component';
 import { FooterComponent } from './footer/footer.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { WeatherDetailDialogComponent } from './weather-detail-dialog/weather-detail-dialog.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ForecastComponent,
     TodayHighlightsComponent,
     HourlyForecastComponent,
-    FooterComponent
+    FooterComponent,
+    WeatherDetailDialogComponent
   ],
   imports: [
     CommonModule,
@@ -72,7 +74,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ForecastComponent,
     TodayHighlightsComponent,
     HourlyForecastComponent,
-    FooterComponent
+    FooterComponent,
+    WeatherDetailDialogComponent
   ]
 })
 export class ComponentsModule { }
