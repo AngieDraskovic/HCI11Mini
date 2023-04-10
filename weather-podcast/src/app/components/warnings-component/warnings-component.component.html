@@ -1,0 +1,7 @@
+<div id="warningArea">
+    <span id="title"><u>WARNINGS</u></span>
+    <p *ngIf="empty" id="noWarn">No warnings for selected area.</p>
+    <div *ngFor="let warning of warnings" id="cont">
+        <p matTooltip="Click to see detail" (click)="openDetailDialog(warning)" id="w">{{ warning['headline'] }}</p>
+    </div>
+</div>
