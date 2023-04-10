@@ -70,4 +70,11 @@ export class HeaderComponent implements OnInit {
   chooseCity(id: string) {
     window.alert(id);
   }
+  // userInput:string = '';
+
+  // @Output() inputEmitter = new EventEmitter<any>();
+
+  // search(){
+  //   this.inputEmitter.emit(this.userInput);
+  // }
 }

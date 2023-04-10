@@ -12,12 +12,19 @@ export class WeatherService {
   constructor(private http: HttpClient) {}
 
   getCurrentWeatherData(location: string) {
-    return this.http.get(`${this.apiUrl}/current.json?key=${this.API_KEY}&q=${location}&units=metric`);
+    return this.http.get(`${this.apiUrl}/current.json?key=${this.API_KEY}&q=${location}&units=metric&aqi=yes`);
   }
 
   getAstronomyTodayData(location:string){
-    return this.http.get(`${this.apiUrl}/current.json?key=${this.API_KEY}&q=${location}&dt=today`);
+    return this.http.get(`${this.apiUrl}/astronomy.json?key=${this.API_KEY}&q=${location}}&dt=today`);
   }
+
+  getAstronomyRandomDateData(location:string, date:string){
+    return this.http.get(`${this.apiUrl}/astronomy.json?key=${this.API_KEY}&q=${location}}&dt=${date}`);
+  }
+
+
+
 
   getHighAndLow(location:string){
     return fetch(`https://api.weatherapi.com/v1/forecast.json?key=${this.API_KEY}&q=${location}&days=1&aqi=no&alerts=no`)
@@ -36,7 +43,7 @@ export class WeatherService {
           console.log(`Max temp: ${maxTemp}°C`);
           console.log(`Min temp: ${minTemp}°C`);
 
-          return "H: " + maxTemp + "°C |" + "  L: " + minTemp + "°C";
+          return maxTemp + "°c | " + minTemp + "°c";
         });
   }
 
@@ -49,9 +56,8 @@ export class WeatherService {
   }
 
 
-  
-  
-  }
+
+
   
   getTenDaysData(location: string) {
     const pastDays = 7;
