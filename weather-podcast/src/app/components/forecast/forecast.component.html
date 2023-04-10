@@ -1,18 +1,89 @@
 <section class="section forecast" aria-labelledby="forecast-label" data-5-day-forecast>
-  <h2 class="title-2" id="forecast-label">10 Days Forecast</h2>
+  <h2 class="title-2" id="forecast-label">3 Days Forecast</h2>
 
   <div class="card card-lg forecast-card">
     <ul>
-      <li class="card-item" *ngFor="let day of weatherData">
+
+      <li class="card-item">
+
         <div class="icon-wrapper">
-          <img [src]="day.conditionIcon" width="36" height="36" [alt]="day.conditionText" class="weather-icon">
-          <span class="span">
-            <p class="title-2">{{ day.maxTemp }}&deg;</p>
+          <img ngSrc="assets/images/weather_icons/01n.png" width="36" height="36" alt="Overcast Clouds" class="weather-icon">
+
+          <span class="span" >
+            <p class="title-2">25&deg;</p>
           </span>
         </div>
-        <p class="label-1">{{ day.date | date:'dd MMM' }}</p>
-        <p class="label-1">{{ day.date | date:'EEEE' }}</p>
+
+        <p class="label-1">17 Feb</p>
+
+        <p class="label-1">Friday</p>
+
+      </li>
+
+      <li class="card-item">
+
+        <div class="icon-wrapper">
+          <img ngSrc="assets/images/weather_icons/01n.png" width="36" height="36" alt="Overcast Clouds" class="weather-icon">
+
+          <span class="span" >
+            <p class="title-2">25&deg;</p>
+          </span>
+        </div>
+
+        <p class="label-1">17 Feb</p>
+
+        <p class="label-1">Friday</p>
+
+      </li>
+
+      <li class="card-item">
+
+        <div class="icon-wrapper">
+          <img ngSrc="assets/images/weather_icons/01n.png" width="36" height="36" alt="Overcast Clouds" class="weather-icon">
+
+          <span class="span" >
+            <p class="title-2">25&deg;</p>
+          </span>
+        </div>
+
+        <p class="label-1">17 Feb</p>
+
+        <p class="label-1">Friday</p>
+
+      </li>
+
+      <li class="card-item">
+
+        <div class="icon-wrapper">
+          <img ngSrc="assets/images/weather_icons/01n.png" width="36" height="36" alt="Overcast Clouds" class="weather-icon">
+
+          <span class="span" >
+            <p class="title-2">25&deg;</p>
+          </span>
+        </div>
+
+        <p class="label-1">17 Feb</p>
+
+        <p class="label-1">Friday</p>
+
+      </li>
+
+      <li class="card-item">
+
+        <div class="icon-wrapper">
+          <img ngSrc="assets/images/weather_icons/01n.png" width="36" height="36" alt="Overcast Clouds" class="weather-icon">
+
+          <span class="span" >
+            <p class="title-2">25&deg;</p>
+          </span>
+        </div>
+
+        <p class="label-1">17 Feb</p>
+
+        <p class="label-1">Friday</p>
+
       </li>
     </ul>
   </div>
+
 </section>
