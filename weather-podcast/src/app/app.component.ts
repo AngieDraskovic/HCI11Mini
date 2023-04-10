@@ -12,6 +12,7 @@ export class AppComponent {
   astroData:any;
   forecastData:any;
   warningData:any;
+  tenDaysData:any;
   userInput:string = '';
 
 
@@ -23,13 +24,16 @@ export class AppComponent {
       this.weatherService.getCurrentWeatherData(this.userInput).toPromise(),
       this.weatherService.getAstronomyTodayData(this.userInput).toPromise(),
       this.weatherService.getHighAndLow(this.userInput),
-      this.weatherService.getWeatherWarnings(this.userInput)
+      this.weatherService.getWeatherWarnings(this.userInput),
+      this.weatherService.getTenDaysData(this.userInput).toPromise()
     ])
-    .then(([weatherData, astroData, forecastData, warningData]) => {
+    .then(([weatherData, astroData, forecastData, warningData, tenDaysData]) => {
       this.weatherData = weatherData;
       this.astroData = astroData;
       this.forecastData = forecastData;
       this.warningData = warningData;
+      this.tenDaysData = tenDaysData;
+      
     })
     .catch(error => {
       console.error(error); 

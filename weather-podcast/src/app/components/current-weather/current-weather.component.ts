@@ -24,6 +24,7 @@ export class CurrentWeatherComponent {
 
 
   ngOnChanges(changes: SimpleChanges) {
+    
     if (changes['weatherData']) {
       this.getWeatherType();
     }

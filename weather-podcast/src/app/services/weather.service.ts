@@ -40,8 +40,6 @@ export class WeatherService {
               minTemp = hour.temp_c;
             }
           });
-          console.log(`Max temp: ${maxTemp}°C`);
-          console.log(`Min temp: ${minTemp}°C`);
 
           return maxTemp + "°c | " + minTemp + "°c";
         });
