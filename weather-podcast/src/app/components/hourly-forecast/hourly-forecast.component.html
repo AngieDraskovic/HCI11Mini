@@ -16,7 +16,7 @@
       <li class="slider-item" *ngFor="let hour of hourlyForecast">
         <div class="card card-sm slider-card">
           <p class="body-3">{{ hour.time | date:'shortTime' }}</p>
-          <img src="assets/images/weather_icons/direction.png" alt="" class="weather-icon" loading="lazy" width="48" height="48" title="">
+          <img [src]="'assets/images/weather_icons/direction.png'" alt="" class="weather-icon" loading="lazy" width="48" height="48" title="" [ngStyle]="{'transform': 'rotate(' + windDirectionToAngle(hour.wind_dir) + 'deg)'}">
           <p class="body-3">{{ hour.wind_kph }} km/h</p>
         </div>
       </li>
