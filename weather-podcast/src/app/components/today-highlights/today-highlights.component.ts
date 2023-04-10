@@ -1,5 +1,5 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { WeatherDetailDialogComponent } from '../weather-detail-dialog/weather-detail-dialog.component';
 
 @Component({
@@ -31,7 +31,7 @@ export class TodayHighlightsComponent {
     so2:number = 0;
     air_index:number= 0;
 
-    warnings:any;
+
 
     constructor(private dialog:MatDialog){}
 
@@ -46,7 +46,7 @@ export class TodayHighlightsComponent {
       if (changes['forecastData']){
         this.getHighLow();
       }
-      if (changes['warnings']){
+      if (changes['warningData']){
         this.getWarnings();
       }
     }
@@ -91,13 +91,20 @@ export class TodayHighlightsComponent {
     getWarnings(){
       console.log(this.warningData);
       if(this.warningData!=undefined){
-        this.warnings = this.warningData.alert;
+        this.warningData = this.warningData.alert;
       }
     }
 
-    openDetailDialog(){
-      const dialogRef = this.dialog.open(WeatherDetailDialogComponent, {
-        data: { detail: this.warnings }
-      });
+    
+    openDetailDialog() {
+      const dialogConfig = new MatDialogConfig();
+      if(this.warningData.length == 0 ){
+        dialogConfig.data = { noWarning: "No warnings for selected area."}
+      }else{
+        dialogConfig.data = { detail: this.warningData };
+      }
+      dialogConfig.minWidth = '30%'; // set minimum width to 50% of screen
+    
+      this.dialog.open(WeatherDetailDialogComponent, dialogConfig);
     }
 }

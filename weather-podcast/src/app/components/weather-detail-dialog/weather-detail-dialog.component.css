@@ -7,16 +7,23 @@
 }
 #title{
     font-size: 20px;
-    background-color:rgb(230, 135, 53);
+    background-color: rgb(211, 63, 63);
     color:white;
     font-weight: 300;
     height:60px;
+   
 }
+
 
 #content{
-    color:black;
+    padding-top:10px;
+    background-color: var(--surface);
+    color: rgba(223, 215, 215, 0.922);
 }
 
+body{
+    background-color: var(--surface); 
+}
 
 #closeBtn {
     font-size: 9px;
