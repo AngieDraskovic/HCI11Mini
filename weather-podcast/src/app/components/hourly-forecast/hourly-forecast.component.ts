@@ -16,7 +16,11 @@ export class HourlyForecastComponent {
     if (changes['hourlyForecastData']) {
       if(this.hourlyForecastData)
       {
-        this.hourlyForecast = this.hourlyForecastData.forecast.forecastday[0].hour.slice(0,7);
+        const allHours = this.hourlyForecastData.forecast.forecastday[0].hour;
+        this.hourlyForecast = allHours.filter((_: any, index: number) => index % 3 === 0).slice(0, 7);
+
+
+     
       }
     }
   }
