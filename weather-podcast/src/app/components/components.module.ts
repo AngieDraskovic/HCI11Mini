@@ -27,7 +27,7 @@ import { ForecastComponent } from './forecast/forecast.component';
 import { TodayHighlightsComponent } from './today-highlights/today-highlights.component';
 import { HourlyForecastComponent } from './hourly-forecast/hourly-forecast.component';
 import { FooterComponent } from './footer/footer.component';
-
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -62,7 +62,8 @@ import { FooterComponent } from './footer/footer.component';
     ReactiveFormsModule,
     MatRadioModule,
     MatAutocompleteModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    MatDialogModule
 
   ],
   exports: [

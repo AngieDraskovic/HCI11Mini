@@ -1,17 +1,17 @@
-<app-header></app-header>
+<app-header (inputEmitter)="onInputReceived($event)"></app-header>
 <main>
   <article class="container">
 
     <div class="content-left">
 
-      <app-current-weather></app-current-weather>
+      <app-current-weather [weatherData]="weatherData"></app-current-weather>
 
       <app-forecast></app-forecast>
 
     </div>
 
     <div class="content-right">
-      <app-today-highlights></app-today-highlights>
+      <app-today-highlights [weatherData]="weatherData" [astroData]="astroData" [forecastData]="forecastData" [warningData]="warningData"></app-today-highlights>
 
       <app-hourly-forecast></app-hourly-forecast>
 

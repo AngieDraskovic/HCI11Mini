@@ -12,6 +12,9 @@
   margin-block-end: 20px;
 }
 
+
+
+
 .highlights .card-sm {
   background-color: var(--black-alpha-10);
   position: relative;
@@ -53,6 +56,17 @@
   cursor: help;
 }
 
+.badge2 {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 2px 12px;
+  margin-right: 20px;
+  border-radius: var(--radius-pill);
+  font-weight: var(--weight-semiBold);
+  cursor: help;
+}
+
 .badge.aqi-1 {
   background-color: var(--bg-aqi-1);
   color: var(--on-bg-aqi-1);
@@ -78,6 +92,13 @@
   color: var(--on-bg-aqi-5);
 }
 
+.badge2.aqi-5 {
+  background-color: rgb(211, 63, 63);
+  color: white;
+  font-weight: 500;
+}
+
+
 .highlight-card.two .card-item {
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -87,6 +108,7 @@
 .highlight-card.two .label-1 {
   margin-block-end: 4px;
 }
+
 
 @media (min-width: 768px) {
   .highlight-list {

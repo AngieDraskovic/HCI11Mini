@@ -4,25 +4,25 @@
     <h2 class="title-2 card-title">Now</h2>
 
     <div class="wrapper">
-      <p class="heading">25&deg;<sup>c</sup></p>
+      <p class="heading">{{currentTemperature}}&deg;<sup>c</sup></p>
 
-      <img src="assets/images/weather_icons/01d.png" width="64" height="64" alt="overcast clouds" class="weather-icon">
+      <img src={{iconSrc}} width="64" height="64" alt={{shortDescription}} class="weather-icon">
     </div>
 
-    <p class="body-3">Overcast Clouds</p>
+    <p class="body-3">{{shortDescription}}</p>
 
     <ul class="meta-list">
 
       <li class="meta-item">
         <span class="m-icon">calendar_today</span>
 
-        <p class="title-3 meta-text">Thursday 16, Feb</p>
+        <p class="title-3 meta-text">{{date}}</p>
       </li>
 
       <li class="meta-item">
         <span class="m-icon">location_on</span>
 
-        <p class="title-3 meta-text">London, GB</p>
+        <p class="title-3 meta-text">{{location}}</p>
       </li>
     </ul>
 
