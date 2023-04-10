@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {Observable} from "rxjs";
+import {Forecast, WeatherInfo} from "../model/Forecast";
 
 @Injectable({
   providedIn: 'root'
@@ -50,15 +52,19 @@ export class WeatherService {
   getWeatherWarnings(location:string){
     return fetch(`https://api.weatherapi.com/v1/forecast.json?key=${this.API_KEY}&q=${location}&days=1&aqi=no&alerts=yes`)
         .then(response => response.json())
-        .then(data => { 
+        .then(data => {
           return data.alerts;
         });
   }
 
 
+  getForecastForTimeRange(location: string, startDate: Date, endDate: Date):Observable<WeatherInfo> {
+    const formattedStartDate = this.formatDate(startDate);
+    const formattedEndDate = this.formatDate(endDate);
+    return this.http.get<WeatherInfo>(`${this.apiUrl}/history.json?key=${this.API_KEY}&q=${location}&dt=${formattedStartDate}&end_dt=${formattedEndDate}&units=metric`);
+  }
 
 
-  
   getTenDaysData(location: string) {
     const pastDays = 7;
     const futureDays = 4;

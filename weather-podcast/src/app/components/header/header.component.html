@@ -10,6 +10,7 @@
       <div class="search-wrapper">
         <input type="text" name="search" placeholder="Search city..." class="search-field"
                [ngClass]="{'searching': isSearching}"
+               [(ngModel)]="inputValue"
                #myInput
                (input)="onInputChange(myInput.value)">
 
@@ -24,7 +25,7 @@
       <div class="search-result" [ngClass]="{'active': searchResultActive}">
         <ul class="view-list">
 
-          <li class="view-item" *ngFor="let city of fetchedCities" (click)="chooseCity(city.name)">
+          <li class="view-item" *ngFor="let city of fetchedCities" (click)="pickCity(city.name)">
             <span class="m-icon">location_on</span>
 
             <div>

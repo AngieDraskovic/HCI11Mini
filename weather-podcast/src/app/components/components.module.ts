@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {CommonModule, NgOptimizedImage} from '@angular/common';
+import {CommonModule, DatePipe, NgOptimizedImage} from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -28,6 +28,8 @@ import { TodayHighlightsComponent } from './today-highlights/today-highlights.co
 import { HourlyForecastComponent } from './hourly-forecast/hourly-forecast.component';
 import { FooterComponent } from './footer/footer.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatChipsModule} from "@angular/material/chips";
 
 @NgModule({
   declarations: [
@@ -63,8 +65,12 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatRadioModule,
     MatAutocompleteModule,
     NgOptimizedImage,
-    MatDialogModule
-
+    MatDialogModule,
+    MatButtonToggleModule,
+    MatChipsModule
+  ],
+  providers: [
+    DatePipe,
   ],
   exports: [
     HeaderComponent,

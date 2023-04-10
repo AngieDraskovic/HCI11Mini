@@ -14,7 +14,6 @@ export class AppComponent {
   warningData:any;
   userInput:string = '';
 
-
   constructor(private weatherService: WeatherService){}
 
   onInputReceived(data: any) {
@@ -32,7 +31,7 @@ export class AppComponent {
       this.warningData = warningData;
     })
     .catch(error => {
-      console.error(error); 
+      console.error(error);
    });
 
   }

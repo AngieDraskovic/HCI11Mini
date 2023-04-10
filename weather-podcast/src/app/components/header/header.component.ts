@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   isSearching: boolean = false;
   isEmptySearch: boolean = false;
   searchTimeoutDuration: number = 200;
+  inputValue: any;
 
   cities: City[] = [
     {id: "2830682", name: 'Belgrade', region: 'Central Serbia'},
@@ -27,7 +28,6 @@ export class HeaderComponent implements OnInit {
   fetchedCities: City[] = this.cities;
 
   @Output() inputEmitter = new EventEmitter<any>();
-
 
   constructor(private http: HttpClient, private cityService: CityService) {
   }
@@ -71,7 +71,16 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  pickCity(name:string) {
+    this.searchResultActive = false;
+    this.chooseCity(name);
+    setTimeout(() => {
+      this.searchResultActive = true;
+    }, 100);
+  }
+
   chooseCity(name: string) {
+    this.inputValue = name;
     this.inputEmitter.emit(name);
   }
 }
