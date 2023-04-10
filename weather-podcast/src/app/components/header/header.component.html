@@ -8,7 +8,7 @@
     <div class="search-view" data-search-view>
 
       <div class="search-wrapper">
-        <input type="search" name="search" placeholder="Search city..." class="search-field" data-search-field>
+        <input type="search" name="search" placeholder="Search city..." class="search-field" (keyup.enter)="search()" [(ngModel)]="userInput" data-search-field>
 
         <span class="m-icon leading-icon">search</span>
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  userInput:string = '';
+
+  @Output() inputEmitter = new EventEmitter<any>();
+
+  search(){
+    this.inputEmitter.emit(this.userInput);
+  }
 }
