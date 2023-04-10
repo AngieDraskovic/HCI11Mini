@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {City} from "../../model/City";
 import {CityService} from "../../services/city/city.service";
 import {HttpClient} from "@angular/common/http";
@@ -26,6 +26,9 @@ export class HeaderComponent implements OnInit {
   ];
   fetchedCities: City[] = this.cities;
 
+  @Output() inputEmitter = new EventEmitter<any>();
+
+
   constructor(private http: HttpClient, private cityService: CityService) {
   }
 
@@ -35,6 +38,7 @@ export class HeaderComponent implements OnInit {
 
   getCurrentLocation() {
     this.cityService.getCurrentLocation().subscribe(city => {
+      this.chooseCity(city[0].name);
     });
   }
 
@@ -67,14 +71,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  chooseCity(id: string) {
-    window.alert(id);
+  chooseCity(name: string) {
+    this.inputEmitter.emit(name);
   }
-  // userInput:string = '';
-
-  // @Output() inputEmitter = new EventEmitter<any>();
-
-  // search(){
-  //   this.inputEmitter.emit(this.userInput);
-  // }
 }

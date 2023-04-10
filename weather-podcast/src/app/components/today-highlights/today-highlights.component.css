@@ -1,3 +1,19 @@
+.header-container {
+  position: relative;
+}
+
+.header-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2px 12px;
+  border-radius: var(--radius-pill);
+  font-weight: var(--weight-semiBold);
+  cursor: help;
+  background-color: rgb(211, 63, 63);
+  color: white;
+}
+
 .highlights .m-icon {
   font-size: 3.2rem;
 }
@@ -11,9 +27,6 @@
   color: var(--on-surface-variant);
   margin-block-end: 20px;
 }
-
-
-
 
 .highlights .card-sm {
   background-color: var(--black-alpha-10);

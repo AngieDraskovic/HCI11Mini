@@ -24,7 +24,7 @@
       <div class="search-result" [ngClass]="{'active': searchResultActive}">
         <ul class="view-list">
 
-          <li class="view-item" *ngFor="let city of fetchedCities" (click)="chooseCity(city.id)">
+          <li class="view-item" *ngFor="let city of fetchedCities" (click)="chooseCity(city.name)">
             <span class="m-icon">location_on</span>
 
             <div>

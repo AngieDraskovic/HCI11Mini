@@ -1,7 +1,13 @@
 <section class="section highlights" aria-labelledby="highlights-label" data-highlights>
   <div class="card card-lg">
 
-    <h2 class="title-2" id="highlights-label">Todays Highlights</h2>
+    <div class="header-container">
+      <h2 class="title-2" id="highlights-label">Todays Highlights</h2>
+
+      <span class="header-badge aqi-5" title="Click to see warnings" (click)="openDetailDialog()">
+        Warnings
+      </span>
+    </div>
 
     <div class="highlight-list">
 
@@ -43,22 +49,23 @@
 
         </div>
 
-        
+
         <span *ngIf="air_index == 1" [class]="'badge aqi-1 label-1'" title="aqi message">
           Good
         </span>
-        
+
         <span *ngIf="air_index == 2" [class]="'badge aqi-2 label-2'" title="aqi message">
           Moderate
         </span>
+
         <span *ngIf="air_index == 3" [class]="'badge aqi-3 label-3'" title="aqi message">
           Unhealthy for Sensitive Groups
         </span>
-        
+
         <span *ngIf="air_index == 4" [class]="'badge aqi-4 label-4'" title="aqi message">
           Unhealthy
         </span>
-        
+
         <span *ngIf="air_index == 5" [class]="'badge aqi-5 label-5'" title="aqi message">
           Very Unhealthy
         </span>
@@ -169,15 +176,15 @@
         <span *ngIf="uv <= 2" [class]="'badge aqi-1 label-1'" title="aqi message">
           Safe
         </span>
-        
+
         <span *ngIf="uv <= 7 && uv >=3 " [class]="'badge aqi-2 label-2'" title="aqi message">
           Use sunscreen
         </span>
         <span *ngIf="uv > 8" [class]="'badge aqi-3 label-3'" title="aqi message">
           Dangerous
         </span>
-        
-       
+
+
       </div>
 
       <div class="card card-sm highlight-card">
@@ -204,16 +211,7 @@
 
       </div>
 
-
-      <span [class]="'badge2 aqi-5 label-5'" title="Click to see warnings" (click)="openDetailDialog()">
-        Warnings
-      </span>
-
-
-  
-
     </div>
-
 
 
   </div>
