@@ -23,7 +23,11 @@ export class WeatherService {
     return this.http.get(`${this.apiUrl}/astronomy.json?key=${this.API_KEY}&q=${location}}&dt=${date}`);
   }
 
+  getHourlyForecast(location: string){
+    const endpoint = `${this.apiUrl}/forecast.json?key=${this.API_KEY}&q=${location}&days=1&hours=7`;
+    return this.http.get(endpoint);
 
+  }
 
 
   getHighAndLow(location:string){
