@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CurrentPodcastComponent } from './current-podcast.component';
+import { HourlyForecastComponent } from './hourly-forecast.component';
 
-describe('CurrentPodcastComponent', () => {
-  let component: CurrentPodcastComponent;
-  let fixture: ComponentFixture<CurrentPodcastComponent>;
+describe('HourlyForecastComponent', () => {
+  let component: HourlyForecastComponent;
+  let fixture: ComponentFixture<HourlyForecastComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CurrentPodcastComponent ]
+      declarations: [ HourlyForecastComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CurrentPodcastComponent);
+    fixture = TestBed.createComponent(HourlyForecastComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
