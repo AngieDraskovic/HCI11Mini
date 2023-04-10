@@ -85,7 +85,7 @@ export class CurrentWeatherComponent {
 
 
   getPrettierFormat(dateStr:string){
-    const day = dateStr.split("-")[1];
+    const day = dateStr.split("-")[2];
     return day;
   }
 

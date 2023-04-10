@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {WeatherService} from "../../services/weather.service";
 import {DayInfo, ForecastDay} from "../../model/Forecast";
 import {DatePipe} from "@angular/common";
@@ -9,6 +9,7 @@ import {DatePipe} from "@angular/common";
   styleUrls: ['./forecast.component.css']
 })
 export class ForecastComponent implements OnInit {
+  @Output() cardItemClick = new EventEmitter<string>();
   daysInfo: ForecastDay[] = [];
 
   constructor(private weatherService: WeatherService, private datePipe: DatePipe) {
@@ -64,5 +65,9 @@ export class ForecastComponent implements OnInit {
     } else {
       return "";
     }
+  }
+
+  onCardItemClick(date: string) {
+    this.cardItemClick.emit(date);
   }
 }

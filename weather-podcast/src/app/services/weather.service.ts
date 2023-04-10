@@ -26,7 +26,16 @@ export class WeatherService {
   }
 
 
-
+  getWeatherForecastDate(location: string, date: string) {
+    const formattedDate = new Date(date).toISOString().slice(0, 10);
+    const url = `https://api.weatherapi.com/v1/history.json?key=${this.API_KEY}&q=${location}&dt=${formattedDate}&hour=0`;
+    return fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        return data.forecast.forecastday[0].day;
+      });
+  }
+  
 
   getHighAndLow(location:string){
     return fetch(`https://api.weatherapi.com/v1/forecast.json?key=${this.API_KEY}&q=${location}&days=1&aqi=no&alerts=no`)
