@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,58 +20,58 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
-import { SearchComponent } from './search/search.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { PageComponent } from './page/page.component';
-import { CurrentPodcastComponent } from './current-podcast/current-podcast.component';
-import { WarningsComponentComponent } from './warnings-component/warnings-component.component';
-import { WeatherDetailDialogComponent } from './weather-detail-dialog/weather-detail-dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { WeatherSliderComponent } from './weather-slider/weather-slider.component';
+import { HeaderComponent } from './header/header.component';
+import { CurrentWeatherComponent } from './current-weather/current-weather.component';
+import { ForecastComponent } from './forecast/forecast.component';
+import { TodayHighlightsComponent } from './today-highlights/today-highlights.component';
+import { HourlyForecastComponent } from './hourly-forecast/hourly-forecast.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
-    SearchComponent,
-    PageComponent,
-    CurrentPodcastComponent,
-    WarningsComponentComponent,
-    WeatherDetailDialogComponent,
-    WeatherSliderComponent,
+    HeaderComponent,
+    CurrentWeatherComponent,
+    ForecastComponent,
+    TodayHighlightsComponent,
+    HourlyForecastComponent,
+    FooterComponent
   ],
   imports: [
-   CommonModule,
-   MatCardModule,
-   MatButtonModule,
-   MatIconModule,
-   MatFormFieldModule,
-   MatCheckboxModule,
-   MatOptionModule,
-   MatSelectModule,
-   MatInputModule,
-   FormsModule,
-   MatTableModule,
-   MatListModule,
-   MatSortModule,
-   MatPaginatorModule,
-   MatTableModule,
-   MatTabsModule,
-   BrowserModule,
-   BrowserAnimationsModule,
-   MatDatepickerModule,
-   MatNativeDateModule,
-   ReactiveFormsModule,
-   MatRadioModule,
-   MatAutocompleteModule,
-   MatDialogModule,
-   MatTooltipModule
-  ],
-  exports:[
-    SearchComponent,
-    PageComponent,
-    CurrentPodcastComponent
+    CommonModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatInputModule,
+    FormsModule,
+    MatTableModule,
+    MatListModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatTabsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    MatRadioModule,
+    MatAutocompleteModule,
+    NgOptimizedImage
 
+  ],
+  exports: [
+    HeaderComponent,
+    CurrentWeatherComponent,
+    ForecastComponent,
+    TodayHighlightsComponent,
+    HourlyForecastComponent,
+    FooterComponent
   ]
 })
 export class ComponentsModule { }
