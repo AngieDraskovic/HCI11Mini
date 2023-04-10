@@ -67,3 +67,13 @@ mat-chip-option {
     margin-block-end: 16px;
   }
 }
+
+@media (min-width: 768px) and (max-width: 1248px) {
+  .header-container {
+    flex-direction: column;
+  }
+
+  mat-chip-listbox {
+    margin-top: 12px;
+  }
+}
