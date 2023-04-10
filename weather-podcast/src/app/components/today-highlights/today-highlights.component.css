@@ -1,3 +1,11 @@
+p {
+  margin: 0;
+}
+
+p.label-1 {
+  margin-block-end: 12px !important;
+}
+
 .header-container {
   position: relative;
 }
@@ -128,12 +136,12 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  .highlight-card:nth-child(-n+2) {
+  .highlight-card:nth-child(-n+4) {
     grid-column: span 2;
     height: 160px;
   }
 
-  .highlight-card:nth-child(n+3) {
+  .highlight-card:nth-child(n+5) {
     height: 120px;
   }
 
