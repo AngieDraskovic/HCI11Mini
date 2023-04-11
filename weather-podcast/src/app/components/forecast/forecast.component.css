@@ -10,6 +10,13 @@ h2 {
   margin: 0;
 }
 
+.selected {
+  border-radius: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  background-color: rgb(84, 81, 81);
+}
+
 mat-chip-option {
   background-color: var(--surface) !important;
   --mdc-chip-label-text-color: white;

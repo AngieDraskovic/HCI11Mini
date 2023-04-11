@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { WeatherService } from './services/weather.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent {
   warningData:any;
   hourlyForecastData:any;
   userInput:string = '';
+  chosedDate:string = '';
 
   constructor(private weatherService: WeatherService){}
 
@@ -40,4 +42,20 @@ export class AppComponent {
    });
 
   }
+
+
+  // onCardItemClick(date: string) {
+  //   console.log("caoooo angie");
+  //   this.chosedDate = date;
+  //   from(this.weatherService.getWeatherForecastDate(this.userInput, this.chosedDate))
+  //     .subscribe(
+  //       weatherData => {
+  //         this.weatherData = weatherData;
+  //         console.log(this.weatherData, "brorororo");
+  //       },
+  //       error => {
+  //         console.error(error);
+  //       }
+  //     );
+  // }
 }

@@ -41,13 +41,6 @@ export class CurrentWeatherComponent {
       this.location = this.weatherData.location.name + ", " + this.weatherData.location.country;
       this.iconSrc = this.weatherData.current.condition["icon"];
 
-
-
-
-
-
-
-
      // this.gotWeather = true;
      
       this.wind_dir = this.weatherData.current.wind_dir;
@@ -85,7 +78,7 @@ export class CurrentWeatherComponent {
 
 
   getPrettierFormat(dateStr:string){
-    const day = dateStr.split("-")[1];
+    const day = dateStr.split("-")[2];
     return day;
   }
 

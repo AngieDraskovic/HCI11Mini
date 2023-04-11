@@ -21,16 +21,28 @@ export class WeatherService {
     return this.http.get(`${this.apiUrl}/astronomy.json?key=${this.API_KEY}&q=${location}}&dt=today`);
   }
 
-  getAstronomyRandomDateData(location:string, date:string){
-    return this.http.get(`${this.apiUrl}/astronomy.json?key=${this.API_KEY}&q=${location}}&dt=${date}`);
+  getAstronomyRandomDateData(location:string, date:string):Observable<WInfo>{
+    return this.http.get<WInfo>(`${this.apiUrl}/astronomy.json?key=${this.API_KEY}&q=${location}}&dt=${date}`);
   }
 
   getHourlyForecast(location: string){
     const endpoint = `${this.apiUrl}/forecast.json?key=${this.API_KEY}&q=${location}&days=1&hours=7`;
     return this.http.get(endpoint);
-
   }
 
+
+  getWeatherForecastDate(location: string, date: string) {
+    const formattedDate = new Date(date).toISOString().slice(0, 10);
+    const url = `https://api.weatherapi.com/v1/history.json?key=${this.API_KEY}&q=${location}&dt=${formattedDate}&hour=0`;
+    return fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        return data.forecast.forecastday[0].day;
+      });
+  }
+  
+
+  
 
   getHighAndLow(location:string){
     return fetch(`https://api.weatherapi.com/v1/forecast.json?key=${this.API_KEY}&q=${location}&days=1&aqi=no&alerts=no`)
@@ -92,5 +104,9 @@ export class WeatherService {
     return num.toString().padStart(2, '0');
   }
 
+
 }
 
+interface WInfo {
+  astronomy: any;
+}

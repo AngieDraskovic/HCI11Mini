@@ -6,7 +6,9 @@
 
       <app-current-weather [weatherData]="weatherData"></app-current-weather>
 
-      <app-forecast></app-forecast>
+      <!-- <app-forecast (cardItemClick)="onCardItemClick($event)"></app-forecast> -->
+
+      <app-forecast [location]="userInput"></app-forecast>
 
     </div>
 
