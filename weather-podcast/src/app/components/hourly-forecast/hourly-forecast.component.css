@@ -36,6 +36,12 @@
   margin-block: 12px;
 }
 
+@media (max-width: 768px) {
+  h2 {
+    margin-block-start: 16px;
+  }
+}
+
 @media (min-width: 768px) {
   .slider-container {
     margin-inline: 0 -24px;

@@ -25,6 +25,11 @@ export class WeatherService {
     return this.http.get(`${this.apiUrl}/astronomy.json?key=${this.API_KEY}&q=${location}}&dt=${date}`);
   }
 
+  getHourlyForecast(location: string){
+    const endpoint = `${this.apiUrl}/forecast.json?key=${this.API_KEY}&q=${location}&days=1&hours=7`;
+    return this.http.get(endpoint);
+  }
+
 
   getWeatherForecastDate(location: string, date: string) {
     const formattedDate = new Date(date).toISOString().slice(0, 10);
@@ -35,6 +40,8 @@ export class WeatherService {
         return data.forecast.forecastday[0].day;
       });
   }
+  
+
   
 
   getHighAndLow(location:string){
