@@ -1,0 +1,31 @@
+<section class="section forecast" aria-labelledby="forecast-label" data-5-day-forecast>
+  <div class="header-container">
+    <h2 class="title-2" id="forecast-label">Forecast</h2>
+
+    <mat-chip-listbox aria-label="Choose forecast type">
+      <mat-chip-option selected (click)="fetchForPast()">Past</mat-chip-option>
+      <mat-chip-option (click)="fetchForFuture()">Future</mat-chip-option>
+    </mat-chip-listbox>
+  </div>
+
+  <div class="card card-lg forecast-card">
+    <ul>
+      <li class="card-item" *ngFor="let dayInfo of daysInfo" (click)="onCardItemClick(dayInfo.date)" [class.selected]="dayInfo.date === selectedDate">
+        <div class="icon-wrapper">
+          <img ngSrc="{{dayInfo.day.condition.icon}}" width="36" height="36" alt="Overcast Clouds"
+               class="weather-icon">
+
+          <span class="span">
+            <p class="title-2">{{formatTemperature(dayInfo.day.avgtemp_c)}}</p>
+          </span>
+        </div>
+
+        <p class="label-1 padded">{{formatDate(dayInfo.date)}}</p>
+
+        <p class="label-1">{{getDayOfTheWeek(dayInfo.date)}}</p>
+
+      </li>
+    </ul>
+  </div>
+
+</section>

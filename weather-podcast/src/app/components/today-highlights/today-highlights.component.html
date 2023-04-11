@@ -1,0 +1,235 @@
+<section class="section highlights" aria-labelledby="highlights-label" data-highlights>
+  <div class="card card-lg">
+
+    <div class="header-container">
+      <h2 class="title-2" id="highlights-label">Todays Highlights</h2>
+
+      <span class="header-badge aqi-5" title="Click to see warnings" (click)="openDetailDialog()">
+        Warnings
+      </span>
+    </div>
+
+    <div class="highlight-list">
+
+      <div class="card card-sm highlight-card one">
+
+        <h3 class="title-3">Air Quality Index</h3>
+
+        <div class="wrapper">
+
+          <span class="m-icon">Air</span>
+
+          <ul class="card-list">
+
+            <li class="card-item">
+              <p class="title-1">{{co}}</p>
+
+              <p class="label-1">CO<sub>2</sub></p>
+            </li>
+
+            <li class="card-item">
+              <p class="title-1">{{no2}}</p>
+
+              <p class="label-1">NO<sub>2</sub></p>
+            </li>
+
+            <li class="card-item">
+              <p class="title-1">{{o3}}</p>
+
+              <p class="label-1">O<sub>3</sub></p>
+            </li>
+
+            <li class="card-item">
+              <p class="title-1">{{so2}}</p>
+
+              <p class="label-1">SO<sub>2</sub></p>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <span *ngIf="air_index == 1" [class]="'badge aqi-1 label-1'" title="aqi message">
+          Good
+        </span>
+
+        <span *ngIf="air_index == 2" [class]="'badge aqi-2 label-2'" title="aqi message">
+          Moderate
+        </span>
+
+        <span *ngIf="air_index == 3" [class]="'badge aqi-3 label-3'" title="aqi message">
+          Unhealthy for Sensitive Groups
+        </span>
+
+        <span *ngIf="air_index == 4" [class]="'badge aqi-4 label-4'" title="aqi message">
+          Unhealthy
+        </span>
+
+        <span *ngIf="air_index == 5" [class]="'badge aqi-5 label-5'" title="aqi message">
+          Very Unhealthy
+        </span>
+      </div>
+
+      <div class="card card-sm highlight-card two">
+
+        <h3 class="title-3">Sunrise & Sunset</h3>
+
+        <div class="card-list">
+
+          <div class="card-item">
+            <span class="m-icon">clear_day</span>
+
+            <div>
+              <p class="label-1">Sunrise</p>
+
+              <p class="title-1">{{sunrise}}</p>
+            </div>
+
+          </div>
+
+          <div class="card-item">
+            <span class="m-icon">clear_night</span>
+
+            <div>
+              <p class="label-1">Sunset</p>
+
+              <p class="title-1">{{sunset}}</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="card card-sm highlight-card two">
+
+        <h3 class="title-3">Atmospheric Conditions</h3>
+
+        <div class="card-list">
+
+          <div class="card-item">
+            <span class="m-icon">humidity_percentage</span>
+
+            <div>
+              <p class="label-1">Humidity</p>
+
+              <p class="title-1">{{humidity}}<sub>%</sub></p>
+            </div>
+
+          </div>
+
+          <div class="card-item">
+            <span class="m-icon">shower</span>
+
+            <div>
+              <p class="label-1">Precipitation</p>
+
+              <p class="title-1">{{precip}}<sub>mm</sub></p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="card card-sm highlight-card two">
+
+        <h3 class="title-3">Temperature Details</h3>
+
+        <div class="card-list">
+
+          <div class="card-item">
+            <span class="m-icon">Accessibility</span>
+
+            <div>
+              <p class="label-1">Feels Like</p>
+
+              <p class="title-1">{{feelsLike}}&deg;<sup>c</sup></p>
+            </div>
+
+          </div>
+
+          <div class="card-item">
+            <span class="m-icon">Thermostat</span>
+
+            <div>
+              <p class="label-1">Max | Min</p>
+
+              <p class="title-2">{{highLow}}</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="card card-sm highlight-card">
+
+        <h3 class="title-3">Pressure</h3>
+
+        <div class="wrapper">
+          <span class="m-icon">airwave</span>
+
+          <p class="title-1">{{pressure_mb}}<sub>hPa</sub></p>
+        </div>
+
+      </div>
+
+      <div class="card card-sm highlight-card">
+
+        <h3 class="title-3">Visibility</h3>
+
+        <div class="wrapper">
+          <span class="m-icon">visibility</span>
+
+          <p class="title-1">{{visibility}}<sub>km</sub></p>
+        </div>
+
+      </div>
+
+      <div class="card card-sm highlight-card">
+
+        <h3 class="title-3">UV Index</h3>
+
+        <div class="wrapper">
+          <span class="m-icon">clear_day</span>
+
+          <p class="title-1">{{uv}}</p>
+        </div>
+
+        <span *ngIf="uv <= 2" [class]="'badge aqi-1 label-1'" title="aqi message">
+          Safe
+        </span>
+
+        <span *ngIf="uv <= 7 && uv >=3 " [class]="'badge aqi-2 label-2'" title="aqi message">
+          Use sunscreen
+        </span>
+
+        <span *ngIf="uv > 8" [class]="'badge aqi-3 label-3'" title="aqi message">
+          Dangerous
+        </span>
+
+
+      </div>
+
+      <div class="card card-sm highlight-card">
+
+        <h3 class="title-3">Moon Phase</h3>
+
+        <div class="wrapper">
+          <span class="m-icon">clear_night</span>
+
+          <p class="title-4">{{moonPhase}}</p>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+</section>

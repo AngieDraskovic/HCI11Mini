@@ -1,3 +1,27 @@
+<app-header (inputEmitter)="onInputReceived($event)"></app-header>
+<main>
+  <article class="container">
 
-<app-search></app-search>
-<!-- <app-main-podcast></app-main-podcast> -->
+    <div class="content-left">
+
+      <app-current-weather [weatherData]="weatherData"></app-current-weather>
+
+      <!-- <app-forecast (cardItemClick)="onCardItemClick($event)"></app-forecast> -->
+
+      <app-forecast [location]="userInput"></app-forecast>
+
+    </div>
+
+    <div class="content-right">
+      <app-today-highlights [weatherData]="weatherData" [astroData]="astroData" [forecastData]="forecastData" [warningData]="warningData"></app-today-highlights>
+
+      <app-hourly-forecast [hourlyForecastData]="hourlyForecastData" ></app-hourly-forecast>
+
+      <app-footer></app-footer>
+    </div>
+
+    <div class="loading" data-loading>
+
+    </div>
+  </article>
+</main>

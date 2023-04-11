@@ -1,0 +1,12 @@
+<div class="weather-slider-container">
+  <div class="weather-day" *ngFor="let day of weatherData">
+    <div class="date">{{ day.date }}</div>
+    <div class="icon">
+      <img [src]="day.conditionIcon" alt="{{ day.conditionText }}">
+    </div>
+    <div class="temps">
+      <div>High: {{ day.maxTemp }} &#8451;</div>
+      <div>Low: {{ day.minTemp }} &#8451;</div>
+    </div>
+  </div>
+</div>

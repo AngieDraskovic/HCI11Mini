@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, DatePipe, NgOptimizedImage} from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,45 +20,69 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
-import { MainPodcastComponent } from './components/main-podcast/main-podcast.component';
-import { SearchComponent } from './search/search.component';
-
-
-
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { HeaderComponent } from './header/header.component';
+import { CurrentWeatherComponent } from './current-weather/current-weather.component';
+import { ForecastComponent } from './forecast/forecast.component';
+import { TodayHighlightsComponent } from './today-highlights/today-highlights.component';
+import { HourlyForecastComponent } from './hourly-forecast/hourly-forecast.component';
+import { FooterComponent } from './footer/footer.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { WeatherDetailDialogComponent } from './weather-detail-dialog/weather-detail-dialog.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatChipsModule} from "@angular/material/chips";
+import { AstroDialogComponent } from './astro-dialog/astro-dialog.component';
 @NgModule({
   declarations: [
-    MainPodcastComponent,
-    SearchComponent
+    HeaderComponent,
+    CurrentWeatherComponent,
+    ForecastComponent,
+    TodayHighlightsComponent,
+    HourlyForecastComponent,
+    FooterComponent,
+    WeatherDetailDialogComponent,
+    AstroDialogComponent
   ],
   imports: [
-   CommonModule,
-   MatCardModule,
-   MatButtonModule,
-   MatIconModule,
-   MatFormFieldModule,
-   MatCheckboxModule,
-   MatOptionModule,
-   MatSelectModule,
-   MatInputModule,
-   FormsModule,
-   MatTableModule,
-   MatListModule,
-   MatSortModule,
-   MatPaginatorModule,
-   MatTableModule,
-   MatTabsModule,
-   BrowserModule,
-   BrowserAnimationsModule,
-   MatDatepickerModule,
-   MatNativeDateModule,
-   ReactiveFormsModule,
-   MatRadioModule
-
+    CommonModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatInputModule,
+    FormsModule,
+    MatTableModule,
+    MatListModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatTabsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    MatRadioModule,
+    MatAutocompleteModule,
+    NgOptimizedImage,
+    MatDialogModule,
+    MatButtonToggleModule,
+    MatChipsModule
   ],
-  exports:[
-    MainPodcastComponent,
-    SearchComponent
+  providers: [
+    DatePipe,
+  ],
+  exports: [
+    HeaderComponent,
+    CurrentWeatherComponent,
+    ForecastComponent,
+    TodayHighlightsComponent,
+    HourlyForecastComponent,
+    FooterComponent,
+    WeatherDetailDialogComponent
   ]
 })
 export class ComponentsModule { }

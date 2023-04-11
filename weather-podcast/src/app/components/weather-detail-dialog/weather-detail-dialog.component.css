@@ -1,0 +1,40 @@
+#btn{
+    background-color:rgba(226, 128, 111, 0.871);
+    color:white;
+    font-weight: 300;
+    margin-left: 15px;
+    width:30px;
+}
+#title{
+    font-size: 20px;
+    background-color: rgb(211, 63, 63);
+    color:white;
+    font-weight: 300;
+    height:60px;
+   
+}
+
+
+#content{
+    padding-top:10px;
+    background-color: var(--surface);
+    color: rgba(223, 215, 215, 0.922);
+}
+
+body{
+    background-color: var(--surface); 
+}
+
+#closeBtn {
+    font-size: 9px;
+    width: 25px;
+    height: 25px;
+    float: right;
+    right: 0;
+    padding: 0;
+    line-height: 1;
+    margin-top: 18px;
+    margin-left:10px
+  }
+
+ 
