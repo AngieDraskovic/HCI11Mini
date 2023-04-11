@@ -1,0 +1,68 @@
+<body>
+    <h2 mat-dialog-title id="title"> Astrology</h2>
+    <mat-dialog-content id="content">
+        <div class="card card-sm highlight-card two">
+
+            <h3 class="title-3">Sunrise & Sunset</h3>
+    
+            <div class="card-list">
+    
+              <div class="card-item">
+                <span class="m-icon">clear_day</span>
+    
+                <div>
+                  <p class="label-1">Sunrise</p>
+    
+                  <p class="title-1">{{data.sunrise}}</p>
+                </div>
+    
+              </div>
+    
+              <div class="card-item">
+                <span class="m-icon">clear_night</span>
+    
+                <div>
+                  <p class="label-1">Sunset</p>
+    
+                  <p class="title-1">{{data.sunset}}</p>
+                </div>
+    
+              </div>
+    
+            </div>
+    
+          </div>
+          <br>
+          <div class="card card-sm highlight-card two">
+
+            <h3 class="title-3">Monrise & Monset - {{data.moonphase}}</h3>
+    
+            <div class="card-list">
+    
+              <div class="card-item">
+                <span class="m-icon">nightlight</span>
+    
+                <div>
+                  <p class="label-1">Moonrise</p>
+    
+                  <p class="title-1">{{data.moonrise}}</p>
+                </div>
+    
+              </div>
+    
+              <div class="card-item">
+                <span class="m-icon">mode_night</span>
+    
+                <div>
+                  <p class="label-1">Moonset</p>
+    
+                  <p class="title-1">{{data.moonset}}</p>
+                </div>
+    
+              </div>
+    
+            </div>
+    
+          </div>
+    </mat-dialog-content>
+</body>

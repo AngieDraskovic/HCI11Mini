@@ -1,23 +1,43 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
 import {WeatherService} from "../../services/weather.service";
 import {DayInfo, ForecastDay} from "../../model/Forecast";
 import {DatePipe} from "@angular/common";
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { AstroDialogComponent } from '../astro-dialog/astro-dialog.component';
 
 @Component({
   selector: 'app-forecast',
   templateUrl: './forecast.component.html',
   styleUrls: ['./forecast.component.css']
 })
-export class ForecastComponent implements OnInit {
-  @Output() cardItemClick = new EventEmitter<string>();
+export class ForecastComponent {
+
+  @Input() location:string = '';
   daysInfo: ForecastDay[] = [];
+  private clickListener: any;
+  sunrise:string = '';
+  sunset:string = '';
+  color:boolean = false;
+  selectedDate: string | undefined;
+  document: any;
 
-  constructor(private weatherService: WeatherService, private datePipe: DatePipe) {
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['location']) {
+      this.fetchForPast();
+      this.fetchForFuture();
+  }
   }
 
-  ngOnInit(): void {
-    this.fetchForPast();
+
+
+
+  
+  constructor(private weatherService: WeatherService, private datePipe: DatePipe, private dialog:MatDialog) {
   }
+
+  // ngOnInit(): void {
+  //   this.fetchForPast();
+  // }
 
   fetchForPast() {
     const pastDays = 7;
@@ -26,7 +46,7 @@ export class ForecastComponent implements OnInit {
     startDate.setDate(startDate.getDate() - pastDays);
     endDate.setDate(endDate.getDate() - 1);
 
-    this.weatherService.getForecastForTimeRange("Belgrade", startDate, endDate).subscribe(weatherInfo => {
+    this.weatherService.getForecastForTimeRange(this.location, startDate, endDate).subscribe(weatherInfo => {
       this.daysInfo = weatherInfo.forecast.forecastday;
     })
   }
@@ -37,7 +57,7 @@ export class ForecastComponent implements OnInit {
     const startDate = new Date();
     startDate.setDate(startDate.getDate());
     endDate.setDate(endDate.getDate() + futureDays);
-    this.weatherService.getForecastForTimeRange("Belgrade", startDate, endDate).subscribe(weatherInfo => {
+    this.weatherService.getForecastForTimeRange(this.location, startDate, endDate).subscribe(weatherInfo => {
       this.daysInfo = weatherInfo.forecast.forecastday;
     })
   }
@@ -67,7 +87,29 @@ export class ForecastComponent implements OnInit {
     }
   }
 
+  
+  onCardItemBlur() {
+    this.selectedDate = " ";
+  }
+
   onCardItemClick(date: string) {
-    this.cardItemClick.emit(date);
+    this.selectedDate = date;
+    this.weatherService.getAstronomyRandomDateData(this.location, date).subscribe(
+      wInfo => {
+        const sunrise = wInfo.astronomy.astro['sunrise'];
+        const sunset = wInfo.astronomy.astro['sunset'];
+        const moonrise = wInfo.astronomy.astro['moonrise'];
+        const moonset = wInfo.astronomy.astro['moonset'];
+        const moonphase = wInfo.astronomy.astro['moon_phase']; 
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.data = { sunrise: sunrise, sunset: sunset, moonrise: moonrise, moonset:moonset, moonphase:moonphase };
+        dialogConfig.minWidth = '40%';
+        this.dialog.open(AstroDialogComponent, dialogConfig);
+      },
+      error => {
+        console.error(error);
+      }
+    );
   }
 }
+

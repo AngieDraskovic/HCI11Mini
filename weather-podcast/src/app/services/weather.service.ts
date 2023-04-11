@@ -21,8 +21,8 @@ export class WeatherService {
     return this.http.get(`${this.apiUrl}/astronomy.json?key=${this.API_KEY}&q=${location}}&dt=today`);
   }
 
-  getAstronomyRandomDateData(location:string, date:string){
-    return this.http.get(`${this.apiUrl}/astronomy.json?key=${this.API_KEY}&q=${location}}&dt=${date}`);
+  getAstronomyRandomDateData(location:string, date:string):Observable<WInfo>{
+    return this.http.get<WInfo>(`${this.apiUrl}/astronomy.json?key=${this.API_KEY}&q=${location}}&dt=${date}`);
   }
 
   getHourlyForecast(location: string){
@@ -104,5 +104,9 @@ export class WeatherService {
     return num.toString().padStart(2, '0');
   }
 
+
 }
 
+interface WInfo {
+  astronomy: any;
+}

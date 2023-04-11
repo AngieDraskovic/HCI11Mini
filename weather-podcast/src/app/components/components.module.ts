@@ -31,6 +31,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { WeatherDetailDialogComponent } from './weather-detail-dialog/weather-detail-dialog.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatChipsModule} from "@angular/material/chips";
+import { AstroDialogComponent } from './astro-dialog/astro-dialog.component';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -39,7 +40,8 @@ import {MatChipsModule} from "@angular/material/chips";
     TodayHighlightsComponent,
     HourlyForecastComponent,
     FooterComponent,
-    WeatherDetailDialogComponent
+    WeatherDetailDialogComponent,
+    AstroDialogComponent
   ],
   imports: [
     CommonModule,

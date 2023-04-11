@@ -10,8 +10,7 @@
 
   <div class="card card-lg forecast-card">
     <ul>
-      <li class="card-item" *ngFor="let dayInfo of daysInfo"  (click)="onCardItemClick(dayInfo.date)">
-
+      <li class="card-item" *ngFor="let dayInfo of daysInfo" (click)="onCardItemClick(dayInfo.date)" [class.selected]="dayInfo.date === selectedDate">
         <div class="icon-wrapper">
           <img ngSrc="{{dayInfo.day.condition.icon}}" width="36" height="36" alt="Overcast Clouds"
                class="weather-icon">
